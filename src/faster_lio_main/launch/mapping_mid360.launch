@@ -1,0 +1,30 @@
+<launch>
+<!-- Launch file for Livox MID360 LiDAR -->
+    <arg name="rviz" default="true" />
+
+	<rosparam command="load" file="$(find faster_lio)/config/mid360.yaml" />
+    <param name="feature_extract_enable" type="bool" value="0"/>
+	<param name="point_filter_num" type="int" value="3"/>
+	<param name="max_iteration" type="int" value="3" />
+	<param name="filter_size_surf" type="double" value="0.1" />
+	<param name="filter_size_map" type="double" value="0.1" />
+	<param name="cube_side_length" type="double" value="1000" />
+	<param name="runtime_pos_log_enable" type="bool" value="0" />
+    
+	<node pkg="faster_lio" type="run_mapping_online" name="laserMapping" output="screen"> 
+    </node>
+
+	<node pkg="faster_lio" type="odom_tf_sync_node" name="odom_tf_sync_node" output="screen">
+    </node>
+
+	<group if="$(arg rviz)">
+	<node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find faster_lio)/rviz_cfg/loam_livox.rviz" />
+	</group>
+    
+	<node pkg="tf" type="static_transform_publisher" name="laser_base_link" args="0.028300 0.002899 0.045838 -0.014158 0.013 -0.015913 base_link lidar 100" /> 
+    <node pkg="tf" type="static_transform_publisher" name="slam_mavros" args="0.028300 0.002899 0.045838 -0.014158 0.013 -0.015913 odom camera_init  100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_link_body" args="0 0 0 0 0 0 body base_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="odom_map" args="0 0 0 0 0 0  map odom 100" />
+    
+    
+</launch>

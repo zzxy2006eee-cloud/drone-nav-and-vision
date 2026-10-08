@@ -1,0 +1,12 @@
+bool enabled
+geometry_msgs/PoseStamped goal
+nav_msgs/Path route
+float64 speed_mps
+uint64 generation
+bool inspection
+bool continuous
+---
+bool success
+uint64 generation
+int32 next_trajectory_id
+string message

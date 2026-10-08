@@ -1,0 +1,16 @@
+{
+  "ulog": "external/PX4-Autopilot/build/px4_sitl_inspection/rootfs/log/2026-10-05/07_16_52.ulg",
+  "note": "PX4 log height = negative NED z; only reading logs, ROS publication unchanged.",
+  "trajectory_setpoint": {
+    "max_height_m": 1.9336026906967163,
+    "sample_sim_s": 238.226
+  },
+  "vehicle_local_position": {
+    "max_height_m": 1.9262797832489014,
+    "sample_sim_s": 238.19
+  },
+  "vehicle_local_position_setpoint": {
+    "max_height_m": 1.9336026906967163,
+    "sample_sim_s": 238.262
+  }
+}

@@ -1,0 +1,36 @@
+test_auto_spacing_mount_and_ground (__main__.GeometryTests) ... ok
+test_camera_too_low (__main__.GeometryTests) ... ok
+test_concave_region_clips_lanes (__main__.GeometryTests) ... ok
+test_entry_variants (__main__.GeometryTests) ... ok
+test_final_window_stops (__main__.GeometryTests) ... ok
+test_footprint_faces_ground (__main__.GeometryTests) ... ok
+test_narrow_polygon_one_lane (__main__.GeometryTests) ... ok
+test_nonfinite_rejected (__main__.GeometryTests) ... ok
+test_obstacle_splits_strip (__main__.GeometryTests) ... ok
+test_projection_cannot_jump_to_later_parallel_lane (__main__.GeometryTests) ... ok
+test_raster_union_does_not_double_count (__main__.GeometryTests) ... ok
+test_rectangle_area (__main__.GeometryTests) ... ok
+test_rolling_window_continues (__main__.GeometryTests) ... ok
+test_self_intersection_rejected (__main__.GeometryTests) ... ok
+test_spacing_is_exact (__main__.GeometryTests) ... ok
+test_blocked_prefix_is_not_executable_reference (__main__.InterfaceTests) ... ok
+test_inspection_does_not_accept_ordinary_goal_chord (__main__.InterfaceTests) ... ok
+test_interrupted_update_cannot_restart_navigation (__main__.InterfaceTests) ... ok
+test_near_final_endpoint_on_an_earlier_lane_is_not_arrival (__main__.InterfaceTests) ... ok
+test_partial_yellow_path_keeps_continue_semantics_and_block_flag (__main__.InterfaceTests) ... ok
+test_stale_inspection_heartbeat_cannot_refresh_health (__main__.InterfaceTests) ... ok
+test_canceled_route_generation_exits (__main__.RouteTests) ... ok
+test_open_region_builds_real_continuous_reference (__main__.RouteTests) ... ok
+test_pillar_is_avoided_in_reference (__main__.RouteTests) ... ok
+test_camera_failure_holds_and_preserves_plan (__main__.SafetyStateTests) ... ok
+test_fault_recovery_does_not_automatically_resume (__main__.SafetyStateTests) ... ok
+test_map_change_pauses (__main__.SafetyStateTests) ... ok
+test_no_static_map_rejects_plan (__main__.SafetyStateTests) ... ok
+test_partial_completion_is_not_success (__main__.SafetyStateTests) ... ok
+test_record_overflow_warns_without_landing (__main__.SafetyStateTests) ... ok
+test_severe_flight_failure_does_not_override_landing (__main__.SafetyStateTests) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 1.312s
+
+OK

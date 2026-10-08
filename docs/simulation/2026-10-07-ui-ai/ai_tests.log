@@ -1,0 +1,32 @@
+test_cancel_does_not_interrupt_landing (__main__.AgentTests) ... ok
+test_cancel_navigation_identity_is_preserved (__main__.AgentTests) ... ok
+test_failure_stops_later_steps (__main__.AgentTests) ... ok
+test_late_cleanup_cannot_cancel_a_new_request (__main__.AgentTests) ... ok
+test_late_cloud_result_after_revoke_is_discarded (__main__.AgentTests) ... ok
+test_parse_only_cannot_execute (__main__.AgentTests) ... ok
+test_revoke_reports_canceled_and_invalidates_old_epoch (__main__.AgentTests) ... ok
+test_steps_are_sequential (__main__.AgentTests) ... ok
+test_cloud_function_call_contract (__main__.ContractTests) ... ok
+test_coordinate_boolean_rejected (__main__.ContractTests) ... ok
+test_height_limit (__main__.ContractTests) ... ok
+test_http_failure_does_not_echo_credentials (__main__.ContractTests) ... ok
+test_known_region_valid (__main__.ContractTests) ... ok
+test_missing_coordinates_not_invented (__main__.ContractTests) ... ok
+test_multiple_cloud_plans_rejected (__main__.ContractTests) ... ok
+test_nan_rejected (__main__.ContractTests) ... ok
+test_ned_or_unknown_coordinate_fields_rejected (__main__.ContractTests) ... ok
+test_optional_height_preserves_absence (__main__.ContractTests) ... ok
+test_secret_redacted (__main__.ContractTests) ... ok
+test_shell_action_rejected (__main__.ContractTests) ... ok
+test_unknown_region_rejected (__main__.ContractTests) ... ok
+test_cancel_other_navigation_is_rejected (__main__.FlightGuardTests) ... ok
+test_inspection_owner_generation_is_checked (__main__.FlightGuardTests) ... ok
+test_late_inspection_cancel_cannot_cancel_manual_takeover (__main__.FlightGuardTests) ... ok
+test_old_ai_request_cannot_submit_new_motion (__main__.FlightGuardTests) ... ok
+test_stale_ground_flag_cannot_disarm_during_takeoff (__main__.FlightGuardTests) ... ok
+test_stop_does_not_override_existing_landing (__main__.FlightGuardTests) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.629s
+
+OK

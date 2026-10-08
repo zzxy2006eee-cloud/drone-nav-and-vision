@@ -1,0 +1,6 @@
+# PX4 v1.15 SITL board overlay for MAVROS + Gazebo Classic inspection.
+# CONFIG_DRIVERS_GPS is not set
+# CONFIG_MODULES_SIMULATION_GZ_BRIDGE is not set
+# CONFIG_MODULES_UXRCE_DDS_CLIENT is not set
+# CONFIG_MODULES_ZENOH is not set
+# CONFIG_EXAMPLES_FAKE_GPS is not set

@@ -1,0 +1,4 @@
+uint64 task_id
+---
+bool success
+string message

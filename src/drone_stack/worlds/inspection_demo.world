@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="inspection_demo">
+    <gravity>0 0 -9.81</gravity>
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+    <physics name="ode" type="ode"><max_step_size>0.002</max_step_size><real_time_update_rate>500</real_time_update_rate></physics>
+    <model name="north_wall"><static>true</static><link name="wall"><pose>0 9 1.5 0 0 0</pose><collision name="collision"><geometry><box><size>18 0.25 3</size></box></geometry></collision><visual name="visual"><geometry><box><size>18 0.25 3</size></box></geometry><material><ambient>0.48 0.55 0.62 1</ambient></material></visual></link></model>
+    <model name="south_wall"><static>true</static><link name="wall"><pose>0 -9 1.5 0 0 0</pose><collision name="collision"><geometry><box><size>18 0.25 3</size></box></geometry></collision><visual name="visual"><geometry><box><size>18 0.25 3</size></box></geometry><material><ambient>0.62 0.54 0.48 1</ambient></material></visual></link></model>
+    <model name="east_wall"><static>true</static><link name="wall"><pose>9 0 1.5 0 0 0</pose><collision name="collision"><geometry><box><size>0.25 18 3</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.25 18 3</size></box></geometry><material><ambient>0.50 0.59 0.51 1</ambient></material></visual></link></model>
+    <model name="west_wall"><static>true</static><link name="wall"><pose>-9 0 1.5 0 0 0</pose><collision name="collision"><geometry><box><size>0.25 18 3</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.25 18 3</size></box></geometry><material><ambient>0.58 0.50 0.59 1</ambient></material></visual></link></model>
+    <model name="pillar_a"><static>true</static><link name="post"><pose>3 1 1.4 0 0 0</pose><collision name="collision"><geometry><box><size>0.55 0.55 2.8</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.55 0.55 2.8</size></box></geometry><material><ambient>0.9 0.32 0.22 1</ambient></material></visual></link></model>
+    <model name="pillar_b"><static>true</static><link name="post"><pose>4.5 -2 1.4 0 0 0</pose><collision name="collision"><geometry><box><size>0.65 0.65 2.8</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.65 0.65 2.8</size></box></geometry><material><ambient>0.25 0.55 0.85 1</ambient></material></visual></link></model>
+    <model name="inspection_machine"><static>true</static><link name="machine"><pose>-3 2 0.8 0 0 0.3</pose><collision name="collision"><geometry><box><size>1.6 1.0 1.6</size></box></geometry></collision><visual name="visual"><geometry><box><size>1.6 1.0 1.6</size></box></geometry><material><ambient>0.8 0.7 0.2 1</ambient></material></visual></link></model>
+    <!-- Visual targets have no collision and do not alter flight dynamics. -->
+    <model name="down_camera_target"><static>true</static><link name="target"><pose>1 1 0.003 0 0 0</pose><visual name="visual"><geometry><box><size>0.35 0.35 0.002</size></box></geometry><material><ambient>1 0.05 0.05 1</ambient><diffuse>1 0.05 0.05 1</diffuse></material></visual></link></model>
+    <model name="down_camera_target_goal"><static>true</static><link name="target"><pose>4.2 1 0.003 0 0 0</pose><visual name="visual"><geometry><box><size>0.35 0.35 0.002</size></box></geometry><material><ambient>1 0.05 0.05 1</ambient><diffuse>1 0.05 0.05 1</diffuse></material></visual></link></model>
+  </world>
+</sdf>

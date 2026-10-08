@@ -1,0 +1,3 @@
+[submodule "external/PX4-Autopilot/Tools/simulation/flightgear/flightgear_bridge"]
+	path = external/PX4-Autopilot/Tools/simulation/flightgear/flightgear_bridge
+	url = https://github.com/PX4/PX4-FlightGear-Bridge.git

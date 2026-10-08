@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "flight_result": "flight_result.json",
+  "geometry_audit": "geometry_audit.json",
+  "fusion_audit": "fusion_audit.json",
+  "runtime": "start/logs/20261005_011035",
+  "runtime_pids": {
+    "launcher": 2170199,
+    "gzclient": 2171136
+  },
+  "tests": {
+    "smooth_reference": {
+      "passed": 7
+    },
+    "continuous_trajectory_guard": {
+      "passed": 23
+    },
+    "ray_voxel_traversal": {
+      "passed": 1007
+    }
+  },
+  "legacy_safety_suite": {
+    "compatible": false,
+    "original": "75 cases: 66 fixture errors, 2 failures, 1 skipped; old fixture omits current manager fields",
+    "diagnostic_with_current_fixture": "75 cases: 16 failures, 1 skipped; old policy expectations for unknown-space/HOLD, ignored stale splines, monotonic map updates, goal capture, and async planning differ from current contracts",
+    "production_test_file_modified": false
+  },
+  "limits": "Two recorded goals and this static simulation only. Does not certify the full flight-safety suite or hardware."
+}

@@ -1,0 +1,8 @@
+base_url: https://api.deepseek.com
+model: deepseek-flash
+api_key_file: start/private/deepseek.local
+request_timeout_wall_s: 30.0
+step_timeout_sim_s: 300.0
+step_timeout_wall_s: 900.0
+client_timeout_wall_s: 3.0
+# All authorizations start disabled and are never restored from disk.

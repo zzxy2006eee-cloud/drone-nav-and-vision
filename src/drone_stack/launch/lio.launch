@@ -1,0 +1,23 @@
+<launch>
+  <rosparam command="load" file="$(find drone_stack)/config/faster_lio_sim.yaml"/>
+  <node pkg="drone_stack" type="sim_livox_native_adapter" name="sim_livox_adapter" output="screen"/>
+  <!-- Keep MAVROS and the flight manager alive when localization exits;
+       their timeout and PX4's OFFBOARD failsafe must handle the failure. -->
+  <node pkg="faster_lio" type="run_mapping_online" name="laserMapping" output="screen"/>
+  <node pkg="drone_stack" type="lio_bridge.py" name="drone_lio_bridge" output="screen">
+    <rosparam param="sensor_xyz_body">[0.27, 0.0, 0.10]</rosparam>
+    <param name="sensor_pitch_deg" value="30.0"/>
+    <param name="geometry_hold_s" value="1.0"/>
+    <param name="geometry_land_s" value="2.0"/>
+    <param name="geometry_recovery_s" value="0.5"/>
+    <!-- Recorded sim hover height residual std is 7-8 mm, max <25 mm.
+         Use a conservative 30 mm vertical std so height corrections are not
+         excessively smoothed. XY remains 50 mm; calibrate on real hardware. -->
+    <rosparam param="pose_covariance_diagonal">[0.0025, 0.0025, 0.0009, 0.01, 0.01, 0.0025]</rosparam>
+  </node>
+  <!-- LIO's initial sensor-aligned world rotates into horizontal ROS ENU. -->
+  <node pkg="tf" type="static_transform_publisher" name="odom_to_camera_init"
+        args="0 0 0 0 0.5235987756 0 odom camera_init 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="body_to_lidar"
+        args="0.27 0 0.10 0 0.5235987756 0 base_link lidar 100"/>
+</launch>

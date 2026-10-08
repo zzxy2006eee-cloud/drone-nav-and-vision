@@ -1,0 +1,49 @@
+common:
+  lid_topic: /livox/lidar
+  imu_topic: /livox/imu
+  time_sync_en: false
+preprocess:
+  lidar_type: 1
+  scan_line: 4
+  blind: 0.45
+mapping:
+  # Average roughly two seconds of the independent lidar IMU, rather than
+  # accepting a single short batch affected by ground-contact impulses.
+  imu_init_samples: 400
+  # Effective independent plane-normal support; IMU prior is excluded.
+  min_translation_support: 30.0
+  acc_cov: 0.1
+  gyr_cov: 0.1
+  b_acc_cov: 0.0001
+  b_gyr_cov: 0.0001
+  fov_degree: 360
+  det_range: 40.0
+  extrinsic_est_en: false
+  # The simulated MID360 IMU and ray sensor share one frame. The separate
+  # base_link->sensor mount belongs in the odometry bridge, not here.
+  extrinsic_T: [0.0, 0.0, 0.0]
+  extrinsic_R: [1.0, 0.0, 0.0,
+                0.0, 1.0, 0.0,
+                0.0, 0.0, 1.0]
+publish:
+  path_publish_en: true
+  scan_publish_en: true
+  scan_effect_pub_en: false
+  # Preserve individual deskewed return endpoints for free-space ray evidence.
+  # Internal scan/map downsampling remains unchanged.
+  dense_publish_en: true
+  scan_bodyframe_pub_en: false
+  tf_imu_frame: lio_body
+  tf_world_frame: camera_init
+pcd_save:
+  pcd_save_en: false
+  interval: -1
+feature_extract_enable: false
+point_filter_num: 2
+max_iteration: 3
+filter_size_surf: 0.25
+filter_size_map: 0.25
+cube_side_length: 100
+ivox_grid_resolution: 0.5
+ivox_nearby_type: 26
+esti_plane_threshold: 0.1

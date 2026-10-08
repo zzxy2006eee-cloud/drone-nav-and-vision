@@ -1,0 +1,54 @@
+<launch>
+  <arg name="max_vel" default="0.5"/>
+  <arg name="max_acc" default="0.5"/>
+  <include file="$(find ego_planner)/launch/advanced_param.xml">
+    <arg name="map_size_x_" value="30.0"/>
+    <arg name="map_size_y_" value="30.0"/>
+    <arg name="map_size_z_" value="8.0"/>
+    <arg name="odometry_topic" value="/mavros/local_position/odom"/>
+    <arg name="camera_pose_topic" value="/drone/unused/camera_pose"/>
+    <arg name="depth_topic" value="/drone/unused/depth"/>
+    <arg name="cloud_topic" value="/drone/mapping/rays"/>
+    <arg name="cx" value="320.0"/>
+    <arg name="cy" value="240.0"/>
+    <arg name="fx" value="400.0"/>
+    <arg name="fy" value="400.0"/>
+    <arg name="max_vel" value="$(arg max_vel)"/>
+    <arg name="max_acc" value="$(arg max_acc)"/>
+    <arg name="planning_horizon" value="5.0"/>
+    <arg name="point_num" value="0"/>
+    <arg name="point0_x" value="0"/><arg name="point0_y" value="0"/><arg name="point0_z" value="0"/>
+    <arg name="point1_x" value="0"/><arg name="point1_y" value="0"/><arg name="point1_z" value="0"/>
+    <arg name="point2_x" value="0"/><arg name="point2_y" value="0"/><arg name="point2_z" value="0"/>
+    <arg name="point3_x" value="0"/><arg name="point3_y" value="0"/><arg name="point3_z" value="0"/>
+    <arg name="point4_x" value="0"/><arg name="point4_y" value="0"/><arg name="point4_z" value="0"/>
+    <arg name="flight_type" value="1"/>
+  </include>
+  <param name="/ego_planner_node/grid_map/frame_id" value="odom"/>
+  <param name="/ego_planner_node/fsm/use_global_route" value="true"/>
+  <!-- Cover the quadrotor's roughly 0.30 m horizontal radius plus margin. -->
+  <param name="/ego_planner_node/grid_map/obstacles_inflation" value="0.40"/>
+  <!-- Close vertical gaps in the downsampled lidar surface and forbid the
+       body centre from diving below the local takeoff-height datum. -->
+  <param name="/ego_planner_node/grid_map/obstacles_inflation_z" value="0.25"/>
+  <!-- Missing returns in the tilted lidar's blind area are not free space. -->
+  <param name="/ego_planner_node/grid_map/retain_cloud_obstacles" value="true"/>
+  <param name="/ego_planner_node/grid_map/cloud_memory_start_topic" value="/drone/flight_state"/>
+  <param name="/ego_planner_node/grid_map/ground_height" value="0.5"/>
+  <param name="/ego_planner_node/grid_map/virtual_ceil_height" value="2.6"/>
+  <param name="/ego_planner_node/grid_map/require_observed_free" value="true"/>
+  <param name="/ego_planner_node/grid_map/cloud_body_pose_topic" value="/drone/cloud_body_pose"/>
+  <rosparam param="/ego_planner_node/grid_map/cloud_body_half_extent">[0.235, 0.235, 0.055]</rosparam>
+  <rosparam param="/ego_planner_node/grid_map/cloud_sensor_xyz_body">[0.27, 0.0, 0.10]</rosparam>
+  <node pkg="ego_planner" type="traj_server" name="traj_server" output="screen">
+    <remap from="/position_cmd" to="/planning/pos_cmd"/>
+    <remap from="/odom_world" to="/mavros/local_position/odom"/>
+    <param name="traj_server/time_forward" value="0.1"/>
+  </node>
+  <node pkg="waypoint_generator" type="waypoint_generator" name="waypoint_generator" output="screen">
+    <remap from="~odom" to="/mavros/local_position/odom"/>
+    <remap from="~goal" to="/move_base_simple/goal"/>
+    <remap from="~traj_start_trigger" to="/traj_start_trigger"/>
+    <param name="waypoint_type" value="manual-lonely-waypoint"/>
+  </node>
+</launch>

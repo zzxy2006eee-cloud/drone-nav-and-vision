@@ -1,0 +1,25 @@
+[ 94%] Built target map_msgs_generate_messages_cpp
+[ 94%] Built target rviz_generate_messages_py
+[ 94%] Built target rviz_generate_messages_nodejs
+[ 94%] Built target rviz_generate_messages_eus
+[ 97%] Automatic MOC for target drone_operator_gui
+[ 97%] Built target drone_operator_gui_autogen
+[ 97%] Built target drone_operator_gui
+[ 97%] Automatic MOC for target sim_livox_native_adapter
+[ 97%] Built target sim_livox_native_adapter_autogen
+[100%] Built target sim_livox_native_adapter
+[100%] Built target drone_stack_generate_messages
+Base path: /home/d/robotproject/project0
+Source space: /home/d/robotproject/project0/src
+Build space: /home/d/robotproject/project0/build
+Devel space: /home/d/robotproject/project0/devel
+Install space: /home/d/robotproject/project0/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/d/robotproject/project0/build"
+####
+####
+#### Running command: "make -j1 -l1" in "/home/d/robotproject/project0/build/ego_planner/src/planner/plan_manage"
+####
+####
+#### Running command: "make -j1 -l1" in "/home/d/robotproject/project0/build/drone_stack"
+####

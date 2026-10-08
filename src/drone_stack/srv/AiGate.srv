@@ -1,0 +1,6 @@
+string session_id
+string gate
+bool enabled
+---
+bool success
+string message

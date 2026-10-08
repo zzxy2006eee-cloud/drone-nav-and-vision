@@ -1,0 +1,7 @@
+string session_id
+string request_id
+geometry_msgs/PoseStamped goal
+---
+bool success
+string message
+uint64 task_id

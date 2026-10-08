@@ -1,0 +1,7 @@
+string session_id
+string request_id
+string action
+float64 height_m
+---
+bool success
+string message

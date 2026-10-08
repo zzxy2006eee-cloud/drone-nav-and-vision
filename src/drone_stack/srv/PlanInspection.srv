@@ -1,0 +1,13 @@
+geometry_msgs/PolygonStamped region
+float64 altitude
+bool auto_spacing
+float64 spacing
+float64 overlap
+float64 speed
+float64 angle_deg
+int32 entry
+string owner
+---
+bool success
+string message
+string plan_id

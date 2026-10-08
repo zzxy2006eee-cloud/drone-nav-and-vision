@@ -1,0 +1,12 @@
+std_msgs/Header header
+uint64 epoch
+uint64 revision
+uint64 base_revision
+bool full
+float64 resolution
+geometry_msgs/Point origin
+uint32[3] shape
+uint32[] occupied_added
+uint32[] occupied_removed
+uint32[] free_added
+uint32[] free_removed

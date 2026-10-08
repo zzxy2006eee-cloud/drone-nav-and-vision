@@ -1,0 +1,247 @@
+{
+  "tasks": [
+    {
+      "index": 1,
+      "goal": [
+        3.298058032989502,
+        -0.0005800500512123108,
+        1.2
+      ],
+      "start": 171.856,
+      "end": 188.234,
+      "duration_sim_s": 16.378000000000014,
+      "end_distance_sample_m": 0.07618907713913074,
+      "end_sample_sim": 188.364,
+      "turn_entries": 0,
+      "space_wait_entries": 0,
+      "planning_entries": 0,
+      "stage_sim_s": {
+        "UNRECORDED": 14.01000000000002,
+        "TRACKING": 2.367999999999995
+      },
+      "errors": [],
+      "completed": true,
+      "max_reference_z_m": 1.2
+    },
+    {
+      "index": 2,
+      "goal": [
+        5.100377082824707,
+        -2.527461528778076,
+        1.2
+      ],
+      "start": 188.562,
+      "end": 211.804,
+      "duration_sim_s": 23.24199999999999,
+      "end_distance_sample_m": 0.09163154604914503,
+      "end_sample_sim": 211.698,
+      "turn_entries": 2,
+      "space_wait_entries": 2,
+      "planning_entries": 2,
+      "stage_sim_s": {
+        "WAITING": 1.1760000000000161,
+        "PLANNING": 0.34799999999998477,
+        "TURNING": 7.24199999999999,
+        "TRACKING": 10.426000000000016,
+        "SPACE_WAIT": 4.049999999999983
+      },
+      "errors": [
+        "Local curve completed before final goal; requesting another local plan; hovering, goal retained, waiting for scans/replan",
+        "Local curve completed before final goal; requesting another local plan; hovering, goal retained, waiting for scans/replan"
+      ],
+      "completed": true,
+      "max_reference_z_m": 1.2
+    },
+    {
+      "index": 3,
+      "goal": [
+        1.7109391689300537,
+        -5.134988307952881,
+        1.2
+      ],
+      "start": 212.1,
+      "end": 231.632,
+      "duration_sim_s": 19.53200000000001,
+      "end_distance_sample_m": 0.06477195413666809,
+      "end_sample_sim": 231.552,
+      "turn_entries": 1,
+      "space_wait_entries": 0,
+      "planning_entries": 2,
+      "stage_sim_s": {
+        "WAITING": 0.13999999999998636,
+        "PLANNING": 0.7020000000000266,
+        "TURNING": 5.132000000000005,
+        "TRACKING": 13.557999999999993
+      },
+      "errors": [],
+      "completed": true,
+      "max_reference_z_m": 1.2022523880004883
+    },
+    {
+      "index": 4,
+      "goal": [
+        4.182065010070801,
+        -1.9520368576049805,
+        1.2
+      ],
+      "start": 234.126,
+      "end": 256.79,
+      "duration_sim_s": 22.664000000000016,
+      "end_distance_sample_m": 0.06259105736141056,
+      "end_sample_sim": 256.738,
+      "turn_entries": 1,
+      "space_wait_entries": 0,
+      "planning_entries": 2,
+      "stage_sim_s": {
+        "WAITING": 0.10800000000000409,
+        "PLANNING": 0.9180000000000064,
+        "TURNING": 5.0519999999999925,
+        "TRACKING": 16.586000000000013
+      },
+      "errors": [],
+      "completed": true,
+      "max_reference_z_m": 1.211724877357483
+    },
+    {
+      "index": 5,
+      "goal": [
+        1.4651341438293457,
+        1.0855979919433594,
+        1.2
+      ],
+      "start": 257.096,
+      "end": 307.54,
+      "duration_sim_s": 50.44400000000002,
+      "end_distance_sample_m": 0.09337593815804276,
+      "end_sample_sim": 307.44,
+      "turn_entries": 2,
+      "space_wait_entries": 3,
+      "planning_entries": 5,
+      "stage_sim_s": {
+        "WAITING": 10.253999999999905,
+        "PLANNING": 1.2980000000000587,
+        "TURNING": 14.067999999999984,
+        "TRACKING": 18.79800000000006,
+        "SPACE_WAIT": 6.0260000000000105
+      },
+      "errors": [
+        "Local curve completed before final goal; requesting another local plan; hovering, goal retained, waiting for scans/replan",
+        "No collision-free local trajectory available yet; hovering, goal retained, waiting for scans/replan",
+        "No collision-free local trajectory available yet; hovering, goal retained, waiting for scans/replan"
+      ],
+      "completed": true,
+      "max_reference_z_m": 1.4197379350662231
+    },
+    {
+      "index": 6,
+      "goal": [
+        -5.89424991607666,
+        0.5243086814880371,
+        1.2
+      ],
+      "start": 307.898,
+      "end": 328.012,
+      "duration_sim_s": 20.113999999999976,
+      "end_distance_sample_m": 5.244607476439975,
+      "end_sample_sim": 327.886,
+      "turn_entries": 1,
+      "space_wait_entries": 0,
+      "planning_entries": 2,
+      "stage_sim_s": {
+        "WAITING": 0.0999999999999659,
+        "PLANNING": 4.346000000000004,
+        "TURNING": 9.110000000000014,
+        "TRACKING": 6.557999999999993
+      },
+      "errors": [
+        "Full EGO trajectory validation exceeded its bounded budget; executable lookahead"
+      ],
+      "completed": false,
+      "max_reference_z_m": 2.074544653488334
+    }
+  ],
+  "observed_start_sim": 185.824,
+  "max_fcu_height_m": 1.5859220027923584,
+  "min_translation_support": 201.60947491956833,
+  "health_quality_counts": {
+    "HEALTHY": 16,
+    "WARNING": 15
+  },
+  "max_warning_observed_duration_sim_s": 0.057999999999992724,
+  "future_odom_warnings": 79,
+  "moving_heading": {
+    "samples": 214,
+    "median_abs_error_deg": 0.5478856225508956,
+    "p95_abs_error_deg": 13.555600854261675,
+    "max_abs_error_deg": 62.92847533895488,
+    "command_actual_p95_deg": 10.375104179631094,
+    "scope": "TRACKING, horizontal speed >0.15m/s, compares planner velocity world tangent; asynchronous topic sampling, includes new-curve transients"
+  },
+  "purple": {
+    "matched_samples": 277,
+    "max_error_m": 0.0
+  },
+  "reference_progress_rewinds": 0,
+  "global_empty_during_navigation": [
+    {
+      "start": 312.048,
+      "end": 313.042,
+      "duration": 0.9939999999999714
+    },
+    {
+      "start": 315.22,
+      "end": 317.978,
+      "duration": 2.7579999999999814
+    }
+  ],
+  "max_observed_setpoint_sim_gap_s": 0.18599999999997863,
+  "navigation_cpu_percent": {
+    "qt": {
+      "median": 29.3,
+      "max": 31.9
+    },
+    "lio": {
+      "median": 47.1,
+      "max": 58.4
+    },
+    "ego": {
+      "median": 23.3,
+      "max": 25.7
+    },
+    "gazebo": {
+      "median": 103.4,
+      "max": 106.7
+    },
+    "manager": {
+      "median": 93.4,
+      "max": 103.1
+    },
+    "global_route": {
+      "median": 94.6,
+      "max": 107.0
+    }
+  },
+  "landing": [
+    {
+      "sim": 370.844,
+      "wall": 1791190399.9624748,
+      "kind": "error",
+      "data": "Operator requested landing"
+    }
+  ],
+  "ceiling_events": [
+    {
+      "sim": 185.894,
+      "wall": 1791189671.9077566,
+      "kind": "ceiling",
+      "data": 2.5
+    }
+  ],
+  "approved_curve_moving_heading": {
+    "samples": 236,
+    "median_deg": 0.4962124361752929,
+    "p95_deg": 12.2503642720153,
+    "max_deg": 49.91722907419694,
+    "sampling": "purple sample matched exact spline; speed/stage from nearby heading sample within 0.2 sim seconds; excludes low speed"
+  }
+}

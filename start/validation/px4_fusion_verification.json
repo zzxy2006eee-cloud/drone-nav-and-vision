@@ -1,0 +1,23 @@
+{
+  "ulog_path": "external/PX4-Autopilot/build/px4_sitl_inspection/rootfs/log/2026-10-02/11_19_20.ulg",
+  "final_fusion_flags": {
+    "cs_ev_pos": 1,
+    "cs_ev_hgt": 1,
+    "cs_ev_yaw": 1,
+    "cs_ev_vel": 0,
+    "cs_baro_hgt": 0,
+    "cs_gps": 0
+  },
+  "params": {
+    "EKF2_EV_CTRL": 11.0,
+    "EKF2_HGT_REF": 3.0,
+    "EKF2_BARO_CTRL": 0.0,
+    "EKF2_GPS_CTRL": 0.0
+  },
+  "external_pose_delay_ms_percentiles_0_50_95_100": [
+    0.0,
+    250.435,
+    320.279,
+    418.447
+  ]
+}

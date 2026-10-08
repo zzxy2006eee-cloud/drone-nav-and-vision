@@ -1,0 +1,6 @@
+string action
+string payload
+---
+bool success
+string message
+string payload

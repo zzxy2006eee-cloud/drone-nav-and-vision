@@ -1,0 +1,25 @@
+[ 92%] Built target drone_stack_generate_messages_eus
+[ 92%] Automatic MOC for target drone_operator_gui
+[ 92%] Built target drone_operator_gui_autogen
+Scanning dependencies of target drone_operator_gui
+[ 96%] Building CXX object drone_stack/CMakeFiles/drone_operator_gui.dir/src/operator_gui.cpp.o
+[ 96%] Linking CXX executable /home/d/robotproject/project0/devel/lib/drone_stack/drone_operator_gui
+[ 96%] Built target drone_operator_gui
+[ 96%] Built target drone_stack_generate_messages
+[ 96%] Automatic MOC for target sim_livox_native_adapter
+[ 96%] Built target sim_livox_native_adapter_autogen
+[100%] Built target sim_livox_native_adapter
+Base path: /home/d/robotproject/project0
+Source space: /home/d/robotproject/project0/src
+Build space: /home/d/robotproject/project0/build
+Devel space: /home/d/robotproject/project0/devel
+Install space: /home/d/robotproject/project0/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/d/robotproject/project0/build"
+####
+####
+#### Running command: "make -j1 -l1" in "/home/d/robotproject/project0/build/ego_planner/src/planner/plan_manage"
+####
+####
+#### Running command: "make -j1 -l1" in "/home/d/robotproject/project0/build/drone_stack"
+####

@@ -1,0 +1,9 @@
+ERROR: failed to launch XML-RPC server for roslaunch
+RLException: XML-RPC initialization failed
+The traceback for the exception was written to the log file
+... logging to /tmp/drone_ai_sim_attempt_roslogs/51100e04-c236-11f1-8363-93073012942a/roslaunch-d-22.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+ERROR: Unable to start XML-RPC server: Operation not permitted

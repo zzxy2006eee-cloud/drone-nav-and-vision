@@ -1,0 +1,5 @@
+float64 speed_mps
+---
+bool success
+float64 speed_mps
+string message

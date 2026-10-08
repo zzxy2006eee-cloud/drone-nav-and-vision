@@ -1,0 +1,14 @@
+string action
+string path
+float64 offset_x
+float64 offset_y
+float64 offset_z
+float64 yaw_deg
+bool use_map_frame
+bool clip_to_navigation_grid
+---
+bool success
+string message
+string mode
+uint32 occupied_count
+uint32 free_count

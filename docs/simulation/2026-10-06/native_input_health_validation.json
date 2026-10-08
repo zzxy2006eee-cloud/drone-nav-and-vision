@@ -1,0 +1,41 @@
+{
+  "livox_points": 9061,
+  "range_min": 0.4505645730704175,
+  "range_max": 12.750666164542876,
+  "point_format_valid": true,
+  "source_end_sim": 181.448,
+  "mapping_rays": 10071,
+  "mapping_hits": 4531,
+  "mapping_misses": 5540,
+  "parameters": {
+    "/drone/health_hold_s": 1.0,
+    "/drone/health_land_s": 2.0,
+    "/drone_lio_bridge/geometry_hold_s": 1.0,
+    "/drone_lio_bridge/geometry_land_s": 2.0,
+    "/drone_flight_manager/max_planner_age_s": 1.0
+  },
+  "health_boundary_cases": [
+    [
+      0,
+      "WARNING"
+    ],
+    [
+      0.999,
+      "WARNING"
+    ],
+    [
+      1.0,
+      "HOLD"
+    ],
+    [
+      1.999,
+      "HOLD"
+    ],
+    [
+      2.0,
+      "SEVERE"
+    ]
+  ],
+  "severe_immediate": true,
+  "estimator_age_limit_unchanged_s": 2.0
+}

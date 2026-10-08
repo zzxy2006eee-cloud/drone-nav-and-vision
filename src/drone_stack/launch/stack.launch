@@ -1,0 +1,68 @@
+<launch>
+  <param name="/use_sim_time" value="true"/>
+  <param name="/drone/health_hold_s" value="1.0"/>
+  <param name="/drone/health_land_s" value="2.0"/>
+  <param name="/drone/native_lidar_frontend" value="true"/>
+  <arg name="fcu_url" default="udp://:14540@127.0.0.1:14557"/>
+  <arg name="gui" default="true"/>
+  <arg name="heartbeat_diagnostics" default="false"/>
+  <arg name="online_mode" default="false"/>
+  <arg name="lio_latency_diagnostics" default="false"/>
+  <param name="/drone/record_lio_latency" value="$(arg lio_latency_diagnostics)"/>
+  <arg name="prebuilt_map" default="$(find drone_stack)/../../start/maps/inspection_demo_scene.dmap"/>
+  <param name="/drone/prebuilt_map_path" value="$(arg prebuilt_map)"/>
+  <arg name="max_flight_height" default="2.5"/>
+  <param name="/drone/max_flight_height_m" value="$(arg max_flight_height)" type="double"/>
+  <param name="/drone/terminal_approach_distance_m" value="0.8" type="double"/>
+  <param name="/drone/terminal_speed_mps" value="0.2" type="double"/>
+  <param name="/drone/terminal_deceleration_mps2" value="0.4" type="double"/>
+  <param name="/drone/terminal_settle_time_s" value="3.0" type="double"/>
+  <!-- Upstream node.launch requires MAVROS unless respawn is enabled. Keep
+       its PX4 configuration while allowing an isolated MAVROS exit. -->
+  <node pkg="mavros" type="mavros_node" name="mavros" required="false"
+        clear_params="true" output="screen">
+    <param name="fcu_url" value="$(arg fcu_url)"/>
+    <param name="gcs_url" value=""/>
+    <param name="target_system_id" value="1"/>
+    <param name="target_component_id" value="1"/>
+    <param name="fcu_protocol" value="v2.0"/>
+    <rosparam command="load" file="$(find mavros)/launch/px4_pluginlists.yaml"/>
+    <rosparam command="load" file="$(find mavros)/launch/px4_config.yaml"/>
+  </node>
+  <!-- Gazebo /clock and PX4 lockstep boot time share the same epoch.
+       Do not estimate a second offset: near-zero negative samples in the
+       installed MAVROS time filter wrap to huge unsigned offsets. This is
+       simulation-only; real hardware must use MAVLINK time synchronisation. -->
+  <param name="/mavros/time/timesync_mode" value="PASSTHROUGH"/>
+  <param name="/mavros/conn/timesync_rate" value="0.0"/>
+  <include file="$(find drone_stack)/launch/lio.launch"/>
+  <include file="$(find drone_stack)/launch/ego.launch"/>
+  <include file="$(find drone_stack)/launch/cameras.launch"/>
+  <!-- A manager exit must leave LIO/MAVROS running so PX4 can use its
+       OFFBOARD-loss landing fallback with external position still available. -->
+  <node pkg="drone_stack" type="flight_manager.py" name="drone_flight_manager" output="screen">
+    <param name="startup_min_time_s" value="65.0"/>
+    <param name="max_planner_age_s" value="1.0"/>
+    <param name="record_heartbeat_diagnostics" value="$(arg heartbeat_diagnostics)"/>
+    <!-- Faster-LIO scans and PX4 external-vision fusion can be about 0.25 s
+         delayed.  Keep a bounded margin for a short EGO CPU spike. -->
+    <param name="max_pose_age_s" value="0.70"/>
+    <param name="max_traj_age_s" value="0.50"/>
+    <param name="require_observed_free" value="true"/>
+    <param name="known_execution_horizon_s" value="3.0"/>
+  </node>
+  <node pkg="drone_stack" type="map_session.py" name="drone_map_session" output="screen">
+    <param name="simulation_startup_map" value="$(arg prebuilt_map)"/>
+    <param name="simulation_online_start" value="$(arg online_mode)"/>
+  </node>
+  <node pkg="drone_stack" type="safe_global_path.py" name="drone_safe_global_path" output="screen">
+    <param name="max_search_nodes" value="15000"/>
+  </node>
+  <node pkg="drone_stack" type="inspection_manager.py" name="drone_inspection_manager" output="screen">
+    <rosparam command="load" file="$(find drone_stack)/config/inspection.yaml"/>
+  </node>
+  <node pkg="drone_stack" type="drone_ai_node.py" name="drone_ai" output="screen">
+    <rosparam command="load" file="$(find drone_stack)/config/ai.yaml"/>
+  </node>
+  <node if="$(arg gui)" pkg="drone_stack" type="drone_operator_gui" name="drone_operator_gui" output="screen"/>
+</launch>

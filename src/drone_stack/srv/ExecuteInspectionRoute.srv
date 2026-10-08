@@ -1,0 +1,8 @@
+nav_msgs/Path route
+float64 speed
+uint64 task_id
+bool continuous
+---
+bool success
+string message
+uint64 task_id

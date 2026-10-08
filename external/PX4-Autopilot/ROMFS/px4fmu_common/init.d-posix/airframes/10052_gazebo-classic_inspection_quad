@@ -1,0 +1,70 @@
+#!/bin/sh
+# @name Inspection Quadrotor (LIO-only Gazebo Classic SITL)
+# @type Quadrotor Wide
+# @maintainer Project operator <operator@example.invalid>
+. ${R}etc/init.d/rc.mc_defaults
+
+# Match the Iris motor geometry used by inspection_quad.sdf.
+param set-default CA_AIRFRAME 0
+param set-default CA_ROTOR_COUNT 4
+param set-default CA_ROTOR0_PX 0.1515
+param set-default CA_ROTOR0_PY 0.245
+param set-default CA_ROTOR0_KM 0.05
+param set-default CA_ROTOR1_PX -0.1515
+param set-default CA_ROTOR1_PY -0.1875
+param set-default CA_ROTOR1_KM 0.05
+param set-default CA_ROTOR2_PX 0.1515
+param set-default CA_ROTOR2_PY -0.245
+param set-default CA_ROTOR2_KM -0.05
+param set-default CA_ROTOR3_PX -0.1515
+param set-default CA_ROTOR3_PY 0.1875
+param set-default CA_ROTOR3_KM -0.05
+param set-default PWM_MAIN_FUNC1 101
+param set-default PWM_MAIN_FUNC2 102
+param set-default PWM_MAIN_FUNC3 103
+param set-default PWM_MAIN_FUNC4 104
+
+# External LIO pose in MAVLink ODOMETRY: XYZ + yaw, never external velocity.
+param set EKF2_EV_CTRL 11
+param set EKF2_HGT_REF 3
+param set EKF2_GPS_CTRL 0
+param set EKF2_BARO_CTRL 0
+param set SYS_HAS_BARO 0
+param set SYS_HAS_MAG 0
+param set SENS_IMU_MODE 1
+param set EKF2_MULTI_IMU 0
+param set EKF2_RNG_CTRL 0
+param set EKF2_OF_CTRL 0
+param set EKF2_MAG_TYPE 5
+param set EKF2_EV_DELAY 0
+# EV_NOISE_MD=0 lower-bounds the covariance carried by ODOMETRY.
+# Keep the simulation's 5 cm reported pose noise rather than the 10 cm floor.
+param set EKF2_EVP_NOISE 0.03
+# Faster-LIO + ROS/MAVROS delivers scan-time pose about 230 ms later
+# (99th percentile ~275 ms in SITL). Keep the EKF delayed horizon behind it.
+param set EKF2_DELAY_MAX 400
+param set COM_ARM_WO_GPS 1
+param set COM_RC_IN_MODE 4
+param set COM_OF_LOSS_T 0.5
+param set COM_OBL_RC_ACT 4
+param set COM_POSCTL_NAVL 1
+# A 2.45 m ENU fault test reached the default 5 s no-aid timeout before
+# contact, causing termination while still airborne. Bound IMU-only coast
+# to 10 s (PX4 parameter maximum) for the <=2.5 m simulated flight volume.
+# The ROS manager still commands LAND immediately when LIO disappears.
+# No invented EV measurements; hardware drift/landing duration need validation.
+param set EKF2_NOAID_TOUT 10000000
+# The simulated accelerometer bias random walk is 0.006 m/s^3.
+# Default EKF bias process noise 0.003 under-tracks it before EV loss;
+# the high-altitude fault showed ~0.05 m/s^2 residual and false ground VZ.
+# Use the documented 0.01 upper bound without changing sensor bias/noise,
+# touchdown detection thresholds, or enabling any external velocity fusion.
+param set EKF2_ACC_B_NOISE 0.01
+# Confirm contact and disarm before the pose-only EKF's no-aid timeout.
+# No airborne/forced disarm: PX4 still requires its landed detector.
+param set COM_DISARM_LAND 0.5
+param set COM_LOW_BAT_ACT 2
+# battery_simulator interpolates open-circuit voltage and has no current/load
+# model. Throttle compensation would add fictitious charge at empty voltage.
+# Simulation only; real battery compensation requires hardware calibration.
+param set BAT1_V_LOAD_DROP 0

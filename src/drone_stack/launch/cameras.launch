@@ -1,0 +1,12 @@
+<launch>
+  <!-- Camera images use optical axes: X right, Y down, Z forward. -->
+  <node pkg="tf" type="static_transform_publisher" name="body_to_front_camera"
+        args="0.27 0 0.05 0 0 0 base_link front_camera_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="front_camera_optical"
+        args="0 0 0 -1.5707963268 0 -1.5707963268 front_camera_link front_camera_optical 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="body_to_down_camera"
+        args="0 0 -0.15 0 1.5707963268 0 base_link down_camera_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="down_camera_optical"
+        args="0 0 0 -1.5707963268 0 -1.5707963268 down_camera_link down_camera_optical 100"/>
+  <node pkg="drone_stack" type="sim_camera_processor.py" name="sim_camera_processor" output="screen"/>
+</launch>

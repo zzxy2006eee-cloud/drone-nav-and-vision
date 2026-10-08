@@ -1,0 +1,115 @@
+{
+  "goals": [
+    {
+      "wall": "2026-10-05 15:21:13",
+      "sim": 112.848,
+      "kind": "selected_goal",
+      "data": {
+        "xyz": [
+          5.2696943283081055,
+          -0.1785268932580948,
+          1.2
+        ],
+        "stamp": 112.848
+      }
+    },
+    {
+      "wall": "2026-10-05 15:23:07",
+      "sim": 151.358,
+      "kind": "selected_goal",
+      "data": {
+        "xyz": [
+          -6.636518955230713,
+          6.056248664855957,
+          1.2
+        ],
+        "stamp": 151.354
+      }
+    },
+    {
+      "wall": "2026-10-05 15:24:51",
+      "sim": 198.002,
+      "kind": "selected_goal",
+      "data": {
+        "xyz": [
+          -3.854017496109009,
+          -0.12099218368530273,
+          1.2
+        ],
+        "stamp": 198.002
+      }
+    }
+  ],
+  "phases": [
+    {
+      "wall": "2026-10-05 15:21:13",
+      "sim": 112.848,
+      "kind": "phase",
+      "data": "NAVIGATING"
+    },
+    {
+      "wall": "2026-10-05 15:22:56",
+      "sim": 146.938,
+      "kind": "phase",
+      "data": "HOLD"
+    },
+    {
+      "wall": "2026-10-05 15:23:07",
+      "sim": 151.36,
+      "kind": "phase",
+      "data": "NAVIGATING"
+    },
+    {
+      "wall": "2026-10-05 15:24:32",
+      "sim": 188.704,
+      "kind": "phase",
+      "data": "HOLD"
+    },
+    {
+      "wall": "2026-10-05 15:24:51",
+      "sim": 198.002,
+      "kind": "phase",
+      "data": "NAVIGATING"
+    },
+    {
+      "wall": "2026-10-05 15:26:59",
+      "sim": 250.412,
+      "kind": "phase",
+      "data": "LANDING"
+    },
+    {
+      "wall": "2026-10-05 15:27:12",
+      "sim": 256.044,
+      "kind": "phase",
+      "data": "READY"
+    }
+  ],
+  "flight_errors": [
+    {
+      "wall": "2026-10-05 15:22:23",
+      "sim": 135.772,
+      "kind": "flight_error",
+      "data": "Local curve completed before final goal; requesting another local plan; hovering, goal retained, waiting for scans/replan"
+    },
+    {
+      "wall": "2026-10-05 15:26:06",
+      "sim": 231.056,
+      "kind": "flight_error",
+      "data": "Full EGO trajectory intersects an inflated obstacle voxel; executable lookahead; hovering, goal retained, waiting for scans/replan"
+    },
+    {
+      "wall": "2026-10-05 15:26:59",
+      "sim": 250.406,
+      "kind": "flight_error",
+      "data": "Operator requested landing"
+    }
+  ],
+  "lio_min_translation_support": 101.93540786863464,
+  "setpoint_max_interval_reported_sim_s": 0.14000000000001478,
+  "global_progress_rewinds": 0,
+  "purple_samples": 356,
+  "purple_max_matching_error_m": 0,
+  "max_global_sample_turn_deg": 3.982341765325577,
+  "max_global_sample_turn_stamp": 114.718,
+  "limits": "No synchronized historical obstacle-map snapshot or source B-spline controls stored in this manual monitor. Cannot attribute map obstruction to a real object versus map drift/ghosting solely from these files."
+}
